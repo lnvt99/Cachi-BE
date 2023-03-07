@@ -136,7 +136,6 @@ namespace WebApiApplication.Controllers
         /// Delete item
         /// </summary>
         /// <param name="id">id</param>
-        /// <exception cref="e">Exception</exception>
         /// <returns>Return status</returns>
         [HttpDelete]
         public IActionResult DeleteItem(string id)

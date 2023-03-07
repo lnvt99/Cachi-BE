@@ -36,12 +36,7 @@ namespace Service
         public async Task<List<ExampleModel>> GetAllItem()
         {
             List<ExampleModel> examples = await _context.ExampleModels.ToListAsync();
-            List<ExampleModel> dataList = new List<ExampleModel>();
-            for (int i = 0; i < examples.Count; i++) {
-                ExampleModel example = examples[i];
-                dataList.Add(example);
-            }
-            return dataList;
+            return examples;
         }
 
         /// <summary>

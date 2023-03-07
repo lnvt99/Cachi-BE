@@ -1,0 +1,45 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>WebApiApplication</name>
+    </assembly>
+    <members>
+        <member name="M:WebApiApplication.Controllers.HomeController.Get">
+            <summary>
+            Testing Web API
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:WebApiApplication.Controllers.HomeController.GetAll">
+            <summary>
+            Get all data
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:WebApiApplication.Controllers.HomeController.GetItemById(System.String)">
+            <summary>
+            Get item data
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:WebApiApplication.Controllers.HomeController.CreatItem(Entity.Model.ExampleModel)">
+            <summary>
+            Create item
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:WebApiApplication.Controllers.HomeController.EditItem(System.String)">
+            <summary>
+            Edit item
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:WebApiApplication.Controllers.HomeController.DeleteItem(System.String)">
+            <summary>
+            Delete item
+            </summary>
+            <param name="id">id</param>
+            <returns>Return status</returns>
+        </member>
+    </members>
+</doc>
