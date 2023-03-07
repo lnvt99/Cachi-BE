@@ -77,9 +77,24 @@ namespace WebApiApplication.Controllers
         }
 
         /// <summary>
-        /// Get item data
+        /// Get item by id
         /// </summary>
-        /// <returns></returns>
+        /// <param name="id">id</param>
+        /// <remarks>
+        /// Response ExampleModel:
+        ///
+        ///     GET - ExampleModel
+        ///     {
+        ///        "id": string,
+        ///        "string": string,
+        ///        "number": int,
+        ///        "boolean": bool,
+        ///        "date": DateTime
+        ///     }
+        ///
+        /// </remarks>
+        /// <response code="200">ResponBody_ExampleModel</response>
+        /// <response code="500">Failed</response>
         [HttpGet("/getItem/{id}")]
         public ResponseBody<ExampleModel> GetItemById(string id)
         {
@@ -133,10 +148,20 @@ namespace WebApiApplication.Controllers
         }
 
         /// <summary>
-        /// Delete item
+        /// Delete item by id
         /// </summary>
         /// <param name="id">id</param>
-        /// <returns>Return status</returns>
+        /// <remarks>
+        /// Sample request:
+        ///
+        ///     Response status
+        ///     200 - Success
+        ///     500 - Failed
+        ///    
+        ///
+        /// </remarks>
+        /// <response code="200">Success</response>
+        /// <response code="500">Failed</response>
         [HttpDelete]
         public IActionResult DeleteItem(string id)
         {
