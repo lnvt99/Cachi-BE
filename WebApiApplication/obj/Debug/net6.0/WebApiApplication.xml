@@ -1,0 +1,70 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>WebApiApplication</name>
+    </assembly>
+    <members>
+        <member name="M:WebApiApplication.Controllers.HomeController.Get">
+            <summary>
+            Testing Web API
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:WebApiApplication.Controllers.HomeController.GetAll">
+            <summary>
+            Get all data
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:WebApiApplication.Controllers.HomeController.GetItemById(System.String)">
+             <summary>
+             Get item by id
+             </summary>
+             <param name="id">id</param>
+             <remarks>
+             Response ExampleModel:
+            
+                 GET - ExampleModel
+                 {
+                    "id": string,
+                    "string": string,
+                    "number": int,
+                    "boolean": bool,
+                    "date": DateTime
+                 }
+            
+             </remarks>
+             <response code="200">ResponBody_ExampleModel</response>
+             <response code="500">Failed</response>
+        </member>
+        <member name="M:WebApiApplication.Controllers.HomeController.CreatItem(Entity.Model.ExampleModel)">
+            <summary>
+            Create item
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:WebApiApplication.Controllers.HomeController.EditItem(System.String)">
+            <summary>
+            Edit item
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:WebApiApplication.Controllers.HomeController.DeleteItem(System.String)">
+             <summary>
+             Delete item by id
+             </summary>
+             <param name="id">id</param>
+             <remarks>
+             Sample request:
+            
+                 Response status
+                 200 - Success
+                 500 - Failed
+                
+            
+             </remarks>
+             <response code="200">Success</response>
+             <response code="500">Failed</response>
+        </member>
+    </members>
+</doc>
