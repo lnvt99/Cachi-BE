@@ -14,9 +14,12 @@ namespace Service
     public class HomeService : IHomeService
     {
         private readonly SettingDbContext _context;
+        private readonly ExampleModel _exampleModel;
 
-        public HomeService( SettingDbContext context) {
+        public HomeService( SettingDbContext context, ExampleModel exampleModel)
+        {
             _context = context;
+            _exampleModel = exampleModel;
         }
 
         /// <summary>
@@ -35,8 +38,9 @@ namespace Service
         /// <returns></returns>
         public async Task<List<ExampleModel>> GetAllItem()
         {
-            List<ExampleModel> examples = await _context.ExampleModels.ToListAsync();
-            return examples;
+            //List<ExampleModel> examples = await _context.ExampleModels.ToListAsync();
+            //return examples;
+            return null;
         }
 
         /// <summary>
@@ -46,30 +50,33 @@ namespace Service
         /// <returns></returns>
         public async Task<ExampleModel> GetItemById(string id)
         {
-            ExampleModel example = await _context.ExampleModels.FirstOrDefaultAsync(x => x.Id == id);
-            return example;
+            //ExampleModel example = await _context.ExampleModels.FirstOrDefaultAsync(x => x.Id == id);
+            //return example;
+            return null;
         }
 
         public async Task<ExampleModel> CreateItem(ExampleModel exampleModel)
         {
-             ExampleModel example = new ExampleModel() { 
-                Id = exampleModel.Id,
-                String = exampleModel.String,
-                Number = exampleModel.Number,
-                Boolean = exampleModel.Boolean,
-                Date = exampleModel.Date
-            };
-            _context.ExampleModels.Add(example);
-            _context.SaveChanges();
-            return example;
+            // ExampleModel example = new ExampleModel() { 
+            //    Id = exampleModel.Id,
+            //    String = exampleModel.String,
+            //    Number = exampleModel.Number,
+            //    Boolean = exampleModel.Boolean,
+            //    Date = exampleModel.Date
+            //};
+            //_context.ExampleModels.Add(example);
+            //_context.SaveChanges();
+            //return example;
+            return null;
         }
 
         public async Task<ExampleModel> DeleteItem(string id)
         {
-            ExampleModel example = await _context.ExampleModels.FirstOrDefaultAsync(x => x.Id == id);
-            _context.ExampleModels.Remove(example);
-            _context.SaveChanges();
-            return example;
+            //ExampleModel example = await _context.ExampleModels.FirstOrDefaultAsync(x => x.Id == id);
+            //_context.ExampleModels.Remove(example);
+            //_context.SaveChanges();
+            //return example;
+            return null;
         }
 
         public Task<ExampleModel> EditItem(string id)
