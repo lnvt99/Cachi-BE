@@ -1,15 +1,17 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
-namespace Entity.Models
+namespace Entity.Models.Bills
 {
-    public partial class Bill
+    [Table("Bills")]
+    public class BillsModel
     {
-        public Bill()
-        {
-            BillsDetails = new HashSet<BillsDetail>();
-        }
-
+        [Key]
         public int BillId { get; set; }
         public int EmployeeId { get; set; }
         public DateTime OrderDate { get; set; }
@@ -17,7 +19,5 @@ namespace Entity.Models
         public DateTime DateCreated { get; set; }
         public DateTime DateLastModified { get; set; }
 
-        public virtual Employee Employee { get; set; } = null!;
-        public virtual ICollection<BillsDetail> BillsDetails { get; set; }
     }
 }

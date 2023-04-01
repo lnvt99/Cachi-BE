@@ -1,4 +1,5 @@
 using Database;
+using Entity.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.OpenApi.Models;
 using Service;
@@ -37,19 +38,19 @@ builder.Services.AddSwaggerGen(options =>
 });
 
 // Setting Database
+
 builder.Services.AddDbContext<SettingDbContext>(options =>
 {
     options.UseSqlServer(builder.Configuration.GetConnectionString("SettingDbContext"));
 });
 
 // Add scoped
-builder.Services.AddScoped<IHomeService, HomeService>();
+builder.Services.AddScoped<IBillsService, BillsService>();
 
 // Add CORS
 builder.Services.AddCors(options => options.AddDefaultPolicy( policy => 
     policy.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod() 
 ));
-
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

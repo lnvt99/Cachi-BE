@@ -1,5 +1,4 @@
 ﻿using AutoMapper;
-using Entity.Model;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,7 +10,7 @@ namespace Entity
     public class Mapper: Profile
     {
         public Mapper() { 
-            CreateMap<ExampleModel, ExampleResponse>();
+            
         }
     }
 }

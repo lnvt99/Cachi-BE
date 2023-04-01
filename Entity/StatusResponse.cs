@@ -4,10 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Entity.Model
+namespace Entity
 {
-    public class ExampleResponse
-    {
-
+    enum Status { 
+        SUCCESS = 200,
+        FAILED = 500
     }
 }

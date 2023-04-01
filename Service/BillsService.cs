@@ -1,5 +1,6 @@
 ﻿using Database;
 using Entity.Models;
+using Entity.Models.Bills;
 using Microsoft.EntityFrameworkCore;
 using Service.Interface;
 using System;
@@ -12,18 +13,22 @@ namespace Service
 {
     public class BillsService : IBillsService
     {
-        private readonly Cachi_DBContext _cachiDBContext;
-        private readonly Bill _bill;
+        private readonly SettingDbContext _settingDBContext;
 
-        public BillsService(Cachi_DBContext cachiDBContext, Bill bill)
+        public BillsService(SettingDbContext settingDBContext)
         {
-            _cachiDBContext = cachiDBContext;
-            _bill = bill;
+            _settingDBContext = settingDBContext;
         }
 
-        public async Task<List<Bill>> getAllBills()
+        public async Task<List<BillsModel>> getAllBills()
         {
-            return await _cachiDBContext.Bills.ToListAsync();
+            return await _settingDBContext.BillsModels.ToListAsync();
+        }
+
+        public async Task<BillsModel> getBillById(int id)
+        {
+            BillsModel billById = await _settingDBContext.BillsModels.FirstOrDefaultAsync(x => x.BillId == id);
+            return billById;
         }
     }
 }

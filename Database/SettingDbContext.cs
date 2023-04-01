@@ -1,4 +1,4 @@
-﻿using Entity.Model;
+﻿using Entity.Models.Bills;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -10,7 +10,7 @@ namespace Database
 {
     public class SettingDbContext: DbContext
     {
-        public DbSet<ExampleModel> ExampleModels { get; set; }
+        public DbSet<BillsModel> BillsModels { get; set; }
 
         public SettingDbContext() : base() { }
 
