@@ -9,7 +9,8 @@
       "Service/1.0.0": {
         "dependencies": {
           "Database": "1.0.0",
-          "Entity": "1.0.0"
+          "Entity": "1.0.0",
+          "Util": "1.0.0"
         },
         "runtime": {
           "Service.dll": {}
@@ -184,6 +185,11 @@
         "runtime": {
           "Entity.dll": {}
         }
+      },
+      "Util/1.0.0": {
+        "runtime": {
+          "Util.dll": {}
+        }
       }
     }
   },
@@ -318,6 +324,11 @@
       "sha512": ""
     },
     "Entity/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "Util/1.0.0": {
       "type": "project",
       "serviceable": false,
       "sha512": ""
