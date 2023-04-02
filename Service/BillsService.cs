@@ -1,6 +1,5 @@
 ﻿using Database;
 using Entity.Models;
-using Entity.Models.Bills;
 using Microsoft.EntityFrameworkCore;
 using Service.Interface;
 using System;
@@ -20,14 +19,14 @@ namespace Service
             _settingDBContext = settingDBContext;
         }
 
-        public async Task<List<BillsModel>> getAllBills()
+        public async Task<List<Bill>> getAllBills()
         {
-            return await _settingDBContext.BillsModels.ToListAsync();
+            return await _settingDBContext.Bills.ToListAsync();
         }
 
-        public async Task<BillsModel> getBillById(int id)
+        public async Task<Bill> getBillById(int id)
         {
-            BillsModel billById = await _settingDBContext.BillsModels.FirstOrDefaultAsync(x => x.BillId == id);
+            Bill billById = await _settingDBContext.Bills.FirstOrDefaultAsync(x => x.BillId == id);
             return billById;
         }
     }

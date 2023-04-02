@@ -3,11 +3,12 @@ using Microsoft.AspNetCore.Mvc;
 using Service;
 using Service.Interface;
 using Entity.Models;
-using Entity.Models.Bills;
+using Microsoft.AspNetCore.Authorization;
 
 namespace WebApiApplication.Controllers
 {
     [Route("api/[controller]")]
+    [Authorize]
     [ApiController]
     public class BillsController : Controller
     {
@@ -22,12 +23,12 @@ namespace WebApiApplication.Controllers
         /// </summary>
         /// <returns></returns>
         [HttpGet("/getAllBills")]
-        public ResponseBody<List<BillsModel>> GetAllBills()
+        public ResponseBody<List<Bill>> GetAllBills()
         {
-            List<BillsModel> data = _billService.getAllBills().Result;
+            List<Bill> data = _billService.getAllBills().Result;
             try
             {
-                return new ResponseBody<List<BillsModel>>
+                return new ResponseBody<List<Bill>>
                 {
                     Status = "",
                     Data = data,
@@ -36,7 +37,7 @@ namespace WebApiApplication.Controllers
             }
             catch (Exception e)
             {
-                return new ResponseBody<List<BillsModel>>
+                return new ResponseBody<List<Bill>>
                 {
                     Status = "",
                     Message = e.Message
@@ -49,12 +50,12 @@ namespace WebApiApplication.Controllers
         /// </summary>
         /// <returns></returns>
         [HttpGet("/getBill/{id}")]
-        public ResponseBody<BillsModel> GetBillById(int id)
+        public ResponseBody<Bill> GetBillById(int id)
         {
-            BillsModel data = _billService.getBillById(id).Result;
+            Bill data = _billService.getBillById(id).Result;
             try
             {
-                return new ResponseBody<BillsModel>
+                return new ResponseBody<Bill>
                 {
                     Status = "",
                     Data = data,
@@ -63,7 +64,7 @@ namespace WebApiApplication.Controllers
             }
             catch (Exception e)
             {
-                return new ResponseBody<BillsModel>
+                return new ResponseBody<Bill>
                 {
                     Status = "",
                     Message = e.Message

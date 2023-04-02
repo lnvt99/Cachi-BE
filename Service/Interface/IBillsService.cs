@@ -1,5 +1,4 @@
 ﻿using Entity.Models;
-using Entity.Models.Bills;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,7 +9,7 @@ namespace Service.Interface
 {
     public interface IBillsService
     {
-        Task<List<BillsModel>> getAllBills();
-        Task<BillsModel> getBillById(int id);
+        Task<List<Bill>> getAllBills();
+        Task<Bill> getBillById(int id);
     }
 }

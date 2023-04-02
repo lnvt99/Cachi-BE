@@ -4,11 +4,61 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.OpenApi.Models;
 using Service;
 using Service.Interface;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.IdentityModel.Tokens;
+
 using System.Reflection;
+using System.Text;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
+// Add JWT
+builder.Services.AddAuthentication(options =>
+{
+    options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+    options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+    options.DefaultScheme = JwtBearerDefaults.AuthenticationScheme;
+}).AddJwtBearer(o =>
+{
+    o.TokenValidationParameters = new TokenValidationParameters
+    {
+        ValidIssuer = builder.Configuration["Jwt:Issuer"],
+        ValidAudience = builder.Configuration["Jwt:Audience"],
+        IssuerSigningKey = new SymmetricSecurityKey
+        (Encoding.UTF8.GetBytes(builder.Configuration["Jwt:Key"])),
+        ValidateIssuer = true,
+        ValidateAudience = true,
+        ValidateLifetime = false,
+        ValidateIssuerSigningKey = true
+    };
+});
+
+builder.Services.AddSwaggerGen(options =>
+    options.AddSecurityDefinition("Bearer", new OpenApiSecurityScheme
+    {
+        In = ParameterLocation.Header,
+        Description = "Insert JWT Token",
+        Name = "Authorization",
+        Type = SecuritySchemeType.Http,
+        BearerFormat = "JWT",
+        Scheme = "bearer"
+    })
+);
+
+builder.Services.AddSwaggerGen(options => 
+    options.AddSecurityRequirement(
+        new OpenApiSecurityRequirement { 
+            {
+            new OpenApiSecurityScheme { 
+                Reference = new OpenApiReference
+                {
+                    Type = ReferenceType.SecurityScheme,
+                    Id = "Bearer"
+                }
+            },
+        new string[] { } 
+    }}
+));
 
 builder.Services.AddControllers();
 
@@ -46,10 +96,11 @@ builder.Services.AddDbContext<SettingDbContext>(options =>
 
 // Add scoped
 builder.Services.AddScoped<IBillsService, BillsService>();
+builder.Services.AddScoped<IAccountService, AccountService>();
 
 // Add CORS
-builder.Services.AddCors(options => options.AddDefaultPolicy( policy => 
-    policy.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod() 
+builder.Services.AddCors(options => options.AddDefaultPolicy(policy =>
+    policy.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod()
 ));
 var app = builder.Build();
 
@@ -59,6 +110,8 @@ if (app.Environment.IsDevelopment())
     app.UseSwagger();
     app.UseSwaggerUI();
 }
+
+app.UseAuthentication();
 
 app.UseHttpsRedirection();
 
