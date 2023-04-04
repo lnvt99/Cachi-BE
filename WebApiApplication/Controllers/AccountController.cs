@@ -50,28 +50,5 @@ namespace WebApiApplication.Controllers
             }
             return null;
         }
-
-        [HttpGet("/GetAllAccount")]
-        public ResponseBody<List<ResponseAccount>> GetAllAccount()
-        {
-            List<ResponseAccount> data = _accountService.GetAllAccount().Result;
-            try
-            {
-                return new ResponseBody<List<ResponseAccount>>
-                {
-                    Status = "",
-                    Data = data,
-                    Message = ""
-                };
-            }
-            catch (Exception e)
-            {
-                return new ResponseBody<List<ResponseAccount>>
-                {
-                    Status = "",
-                    Message = e.Message
-                };
-            }
-        }
     }
 }

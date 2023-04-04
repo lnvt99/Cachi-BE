@@ -30,22 +30,5 @@ namespace Service
             Account account = await _settingDBContext.Accounts.FirstOrDefaultAsync(x => x.Username == requestAccount.UserName && x.Password == requestAccount.Password);
             return account;
         }
-
-        public async Task<List<ResponseAccount>> GetAllAccount()
-        {
-            List<Account> account = await _settingDBContext.Accounts.ToListAsync();
-            List<ResponseAccount> response = new List<ResponseAccount>();
-            account.ForEach(data =>
-            {
-                ResponseAccount result = new ResponseAccount()
-                {
-                    UserName = data.Username,
-                    Password = data.Password,
-                    Status = true
-                };
-               response.Add(result);
-            });
-            return response;
-        }
     }
 }

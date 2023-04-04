@@ -11,6 +11,5 @@ namespace Service.Interface
     public interface IAccountService
     {
         Task<Account> GetAccount(RequestAccount requestAccount);
-        Task<List<ResponseAccount>> GetAllAccount();
     }
 }
