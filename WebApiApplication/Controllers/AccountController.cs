@@ -34,17 +34,21 @@ namespace WebApiApplication.Controllers
         }
 
         [AllowAnonymous]
-        [HttpPost("/login")]
-        public IActionResult Login(RequestAccount requestAccount)
+        [HttpPost("/token")]
+        public ResponseAccount? Login(RequestAccount requestAccount)
         {
-            IActionResult response = Unauthorized();
-            var data = _accountService.GetAccount(requestAccount).Result;
-            if (data != null)
-            {
-                var token = GenerateToken(data);
-                response = Ok(new { token = "Bearer " + token });
+            var response = _accountService.GetAccount(requestAccount).Result;
+            if (response != null) {
+                return new ResponseAccount()
+                {
+                    Avatar = response.Avatar,
+                    Locate = response.Locate,
+                    UserName = response.Username,
+                    UserRole = response.Locate,
+                    Token = GenerateToken(response)
+                };
             }
-            return response;
+            return null;
         }
 
         [HttpGet("/GetAllAccount")]
