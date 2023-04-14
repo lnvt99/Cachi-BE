@@ -8,15 +8,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Util;
 
 namespace Service
 {
     public class AccountService: IAccountService
     {
         private readonly SettingDbContext _settingDBContext;
-
-        private  readonly StringUtil StringUtil = new StringUtil();
         public AccountService(SettingDbContext settingDBContext)
         {
             _settingDBContext = settingDBContext;
@@ -24,7 +21,7 @@ namespace Service
 
         public async Task<Account> GetAccount(RequestAccount requestAccount)
         {
-            if (StringUtil.checkNullOrEmpty(requestAccount.UserName) || StringUtil.checkNullOrEmpty(requestAccount.Password)) {
+            if (requestAccount.UserName == null || requestAccount.Password == null) {
                 return null;
             }
             Account account = await _settingDBContext.Accounts.FirstOrDefaultAsync(x => x.Username == requestAccount.UserName && x.Password == requestAccount.Password);
