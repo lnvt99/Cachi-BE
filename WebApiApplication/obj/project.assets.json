@@ -912,24 +912,13 @@
         "framework": ".NETCoreApp,Version=v6.0",
         "dependencies": {
           "Database": "1.0.0",
-          "Entity": "1.0.0",
-          "Util": "1.0.0"
+          "Entity": "1.0.0"
         },
         "compile": {
           "bin/placeholder/Service.dll": {}
         },
         "runtime": {
           "bin/placeholder/Service.dll": {}
-        }
-      },
-      "Util/1.0.0": {
-        "type": "project",
-        "framework": ".NETCoreApp,Version=v6.0",
-        "compile": {
-          "bin/placeholder/Util.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/Util.dll": {}
         }
       }
     }
@@ -2297,11 +2286,6 @@
       "type": "project",
       "path": "../Service/Service.csproj",
       "msbuildProject": "../Service/Service.csproj"
-    },
-    "Util/1.0.0": {
-      "type": "project",
-      "path": "../Util/Util.csproj",
-      "msbuildProject": "../Util/Util.csproj"
     }
   },
   "projectFileDependencyGroups": {

@@ -308,16 +308,6 @@
         "runtime": {
           "bin/placeholder/Entity.dll": {}
         }
-      },
-      "Util/1.0.0": {
-        "type": "project",
-        "framework": ".NETCoreApp,Version=v6.0",
-        "compile": {
-          "bin/placeholder/Util.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/Util.dll": {}
-        }
       }
     }
   },
@@ -751,18 +741,12 @@
       "type": "project",
       "path": "../Entity/Entity.csproj",
       "msbuildProject": "../Entity/Entity.csproj"
-    },
-    "Util/1.0.0": {
-      "type": "project",
-      "path": "../Util/Util.csproj",
-      "msbuildProject": "../Util/Util.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net6.0": [
       "Database >= 1.0.0",
-      "Entity >= 1.0.0",
-      "Util >= 1.0.0"
+      "Entity >= 1.0.0"
     ]
   },
   "packageFolders": {
@@ -797,9 +781,6 @@
             },
             "D:\\Cachi\\BE\\Entity\\Entity.csproj": {
               "projectPath": "D:\\Cachi\\BE\\Entity\\Entity.csproj"
-            },
-            "D:\\Cachi\\BE\\Util\\Util.csproj": {
-              "projectPath": "D:\\Cachi\\BE\\Util\\Util.csproj"
             }
           }
         }
