@@ -308,16 +308,6 @@
         "runtime": {
           "bin/placeholder/Entity.dll": {}
         }
-      },
-      "Util/1.0.0": {
-        "type": "project",
-        "framework": ".NETCoreApp,Version=v6.0",
-        "compile": {
-          "bin/placeholder/Util.dll": {}
-        },
-        "runtime": {
-          "bin/placeholder/Util.dll": {}
-        }
       }
     }
   },
@@ -751,18 +741,13 @@
       "type": "project",
       "path": "../Entity/Entity.csproj",
       "msbuildProject": "../Entity/Entity.csproj"
-    },
-    "Util/1.0.0": {
-      "type": "project",
-      "path": "../Util/Util.csproj",
-      "msbuildProject": "../Util/Util.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net6.0": [
+      "D:\\Cachi\\BE\\Util\\Util.csproj",
       "Database >= 1.0.0",
-      "Entity >= 1.0.0",
-      "Util >= 1.0.0"
+      "Entity >= 1.0.0"
     ]
   },
   "packageFolders": {
@@ -832,5 +817,16 @@
         "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.200\\RuntimeIdentifierGraph.json"
       }
     }
-  }
+  },
+  "logs": [
+    {
+      "code": "NU1105",
+      "level": "Error",
+      "message": "Unable to find project information for 'D:\\Cachi\\BE\\Util\\Util.csproj'. If you are using Visual Studio, this may be because the project is unloaded or not part of the current solution so run a restore from the command-line. Otherwise, the project file may be invalid or missing targets required for restore.",
+      "libraryId": "D:\\Cachi\\BE\\Util\\Util.csproj",
+      "targetGraphs": [
+        "net6.0"
+      ]
+    }
+  ]
 }
