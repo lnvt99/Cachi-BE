@@ -4,13 +4,20 @@ using Microsoft.AspNetCore.Mvc;
 using Service;
 using Service.Interface;
 using Entity.Entity.Material;
+using Microsoft.AspNetCore.Authorization;
 
 namespace WebApiApplication.Controllers
 {
+    [Route("api/[controller]")]
+    [Authorize]
+    [ApiController]
     public class MaterialController : Controller
     {
-        public IMaterialService? _materialService;
-
+        public IMaterialService _materialService;
+        public MaterialController(IMaterialService materialService)
+        {
+            _materialService = materialService;
+        }
         /// <summary>
         /// Get all materials
         /// </summary>

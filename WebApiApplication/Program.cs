@@ -95,6 +95,7 @@ builder.Services.AddDbContext<SettingDbContext>(options =>
 });
 
 // Add scoped
+builder.Services.AddScoped<IMaterialService, MaterialService>();
 builder.Services.AddScoped<IBillsService, BillsService>();
 builder.Services.AddScoped<IAccountService, AccountService>();
 
