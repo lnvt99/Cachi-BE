@@ -16,6 +16,7 @@ namespace Database
         public virtual DbSet<Recipe> Recipes { get; set; } = null!;
         public virtual DbSet<RecipesSize> RecipesSizes { get; set; } = null!;
         public virtual DbSet<Size> Sizes { get; set; } = null!;
+        public virtual DbSet<Category> Category { get; set; } = null!;
 
         public SettingDbContext() : base() { }
 

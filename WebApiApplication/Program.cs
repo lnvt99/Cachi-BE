@@ -98,6 +98,8 @@ builder.Services.AddDbContext<SettingDbContext>(options =>
 builder.Services.AddScoped<IMaterialService, MaterialService>();
 builder.Services.AddScoped<IBillsService, BillsService>();
 builder.Services.AddScoped<IAccountService, AccountService>();
+builder.Services.AddScoped<ICategoryService, CategoryService>();
+builder.Services.AddScoped<IProductService, ProductService>();
 
 // Add CORS
 builder.Services.AddCors(options => options.AddDefaultPolicy(policy =>

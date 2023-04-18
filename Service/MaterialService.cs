@@ -1,4 +1,5 @@
 ﻿using Database;
+using Entity.Entity.Category;
 using Entity.Entity.Material;
 using Entity.Models;
 using Microsoft.EntityFrameworkCore;
@@ -51,9 +52,19 @@ namespace Service
             return result;
         }
 
-        public async Task<List<Material>> getAllMaterial()
+        public async Task<List<ResponseGetAllMaterial>> getAllMaterial()
         {
-            return await _settingDBContext.Materials.ToListAsync();
+            List<Material> lstCategory = await _settingDBContext.Materials.ToListAsync(); ;
+            List<ResponseGetAllMaterial> data = new List<ResponseGetAllMaterial>();
+            lstCategory.ForEach(x =>
+            {
+                ResponseGetAllMaterial item = new ResponseGetAllMaterial();
+                item.id = x.MaterialId; 
+                item.name = x.MaterialName;
+                item.amount = x.Amount;
+                data.Add(item);
+            });
+            return data;
         }
 
         public async Task<Material> getMaterialById(int id)

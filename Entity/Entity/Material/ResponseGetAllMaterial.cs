@@ -6,8 +6,10 @@ using System.Threading.Tasks;
 
 namespace Entity.Entity.Material
 {
-    public class ResponseMaterial
+    public class ResponseGetAllMaterial
     {
-      
+        public int id { set; get; }
+        public string name { set; get; }
+        public decimal amount { get; set; }
     }
 }

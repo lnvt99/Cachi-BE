@@ -10,7 +10,7 @@ namespace Service.Interface
 {
     public interface IMaterialService
     {
-        Task<List<Material>> getAllMaterial();
+        Task<List<ResponseGetAllMaterial>> getAllMaterial();
         Task<Material> getMaterialById(int id);
         Task<bool> createMaterial(Material material);
         Task<bool> updateMaterial(Material material, int id);
