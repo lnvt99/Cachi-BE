@@ -23,7 +23,7 @@ namespace WebApiApplication.Controllers
         /// Get all category
         /// </summary>
         /// <returns></returns>
-        [HttpGet("/getAllCategory")]
+        [HttpGet("/get-category-list")]
         public ResponseBody<List<ResponseGetAllCategory>> GetAllBills()
         {
             List<ResponseGetAllCategory> data = _categoryService.GetAllCategory().Result;
