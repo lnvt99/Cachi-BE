@@ -23,12 +23,12 @@ namespace WebApiApplication.Controllers
         /// </summary>
         /// <returns>200</returns>
         [HttpGet("/getAllMaterial")]
-        public ResponseBody<List<Material>> GetAllBills()
+        public ResponseBody<List<ResponseGetAllMaterial>> GetAllBills()
         {
-            List<Material> data = _materialService.getAllMaterial().Result;
+            List<ResponseGetAllMaterial> data = _materialService.getAllMaterial().Result;
             try
             {
-                return new ResponseBody<List<Material>>
+                return new ResponseBody<List<ResponseGetAllMaterial>>
                 {
                     Status = "",
                     Data = data,
@@ -37,7 +37,7 @@ namespace WebApiApplication.Controllers
             }
             catch (Exception e)
             {
-                return new ResponseBody<List<Material>>
+                return new ResponseBody<List<ResponseGetAllMaterial>>
                 {
                     Status = "",
                     Message = e.Message
