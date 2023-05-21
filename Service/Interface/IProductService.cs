@@ -1,4 +1,5 @@
-﻿using Entity.Models;
+﻿using Entity.Entity.Product;
+using Entity.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,7 +10,7 @@ namespace Service.Interface
 {
     public interface IProductService
     {
-        Task<List<Product>> getAllProduct();
+        Task<List<ResponseGetAllProduct>> getAllProduct();
         Task<Product> GetProductByCategoryId(string id);
     }
 }

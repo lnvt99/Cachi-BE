@@ -24,25 +24,16 @@ namespace WebApiApplication.Controllers
         /// </summary>
         /// <returns></returns>
         [HttpGet("/get-category-list")]
-        public ResponseBody<List<ResponseGetAllCategory>> GetAllBills()
+        public List<ResponseGetAllCategory> GetAllBills()
         {
             List<ResponseGetAllCategory> data = _categoryService.GetAllCategory().Result;
             try
             {
-                return new ResponseBody<List<ResponseGetAllCategory>>
-                {
-                    Status = "",
-                    Data = data,
-                    Message = ""
-                };
+                return data;
             }
             catch (Exception e)
             {
-                return new ResponseBody<List<ResponseGetAllCategory>>
-                {
-                    Status = "",
-                    Message = e.Message
-                };
+                throw e;
             }
         }
     }

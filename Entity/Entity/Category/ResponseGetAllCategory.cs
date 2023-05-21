@@ -10,8 +10,8 @@ namespace Entity.Entity.Category
     public class ResponseGetAllCategory
     {
         [Key]
-        public int CategoryId { get; set; }
-        public string CategoryName { get; set; }
+        public int id { get; set; }
+        public string name { get; set; }
 
         public string image { get; set; }
     }

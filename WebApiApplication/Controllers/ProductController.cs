@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 using Service;
 using Service.Interface;
 using Entity.Models;
+using Entity.Entity.Product;
 
 namespace WebApiApplication.Controllers
 {
@@ -24,28 +25,19 @@ namespace WebApiApplication.Controllers
         /// Get all product
         /// </summary>
         /// <returns>200</returns>
-        [HttpGet("/getAllProduct")]
-        public ResponseBody<List<Product>> GetAllProduct()
+        [HttpGet("/get-product-list-by-category-id")]
+        public List<ResponseGetAllProduct> GetAllProduct()
         {
-            List<Product> data = _productService.getAllProduct().Result;
-            try
-            {
-                return new ResponseBody<List<Product>>
-                {
-                    Status = "",
-                    Data = data,
-                    Message = ""
-                };
-            }
-            catch (Exception e)
-            {
-                return new ResponseBody<List<Product>>
-                {
-                    Status = "",
-                    Message = e.Message
-                };
-            }
+            return _productService.getAllProduct().Result;     
         }
+
+        [HttpGet("/get-best-seller-product-list-by-category-id")]
+        public List<ResponseGetAllProduct> GetAllBestProduct()
+        {
+            return _productService.getAllProduct().Result;
+        }
+
+        [HttpGet()]
 
         /// <summary>
         /// Get product by categoryId

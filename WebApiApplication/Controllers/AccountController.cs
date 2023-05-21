@@ -35,7 +35,7 @@ namespace WebApiApplication.Controllers
 
         [AllowAnonymous]
         [HttpPost("/token")]
-        public ResponseAccount? Login(RequestAccount requestAccount)
+        public ResponseAccount Login(RequestAccount requestAccount)
         {
             var response = _accountService.GetAccount(requestAccount).Result;
             if (response != null) {

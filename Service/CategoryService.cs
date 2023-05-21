@@ -27,8 +27,8 @@ namespace Service
             lstCategory.ForEach(x =>
             {
                 ResponseGetAllCategory item = new ResponseGetAllCategory();
-                item.CategoryId = x.CategoryId;
-                item.CategoryName = x.CategoryName;
+                item.id = x.CategoryId;
+                item.name = x.CategoryName;
                 item.image = "";
                 data.Add(item);
             });
